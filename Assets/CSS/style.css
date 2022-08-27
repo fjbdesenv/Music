@@ -40,7 +40,19 @@ body{
     box-shadow: 2px 2px 2px 2px #ff0000;
 
     min-height: 400px;
+    min-width: 300px;
+
+    height: 60%;    
+    width: 60%;
 }
+
+/* Main - container -img */
+.bg-img{
+    background-image: url("./../Imgs/brackground/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
   
 /* Footer - cabecalho */
 footer{
