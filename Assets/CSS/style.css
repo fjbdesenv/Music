@@ -28,6 +28,19 @@ body{
 .title::first-letter{
     color: #dd0000;
 }
+
+/* Main - container */
+.container-main{
+    margin: 20px;
+    padding: 10px;
+
+    border: 2px solid #606060;
+    border-radius: 15px;
+    
+    box-shadow: 2px 2px 2px 2px #ff0000;
+
+    min-height: 400px;
+}
   
 /* Footer - cabecalho */
 footer{
