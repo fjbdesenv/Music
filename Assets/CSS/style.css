@@ -1,4 +1,4 @@
-/* reset css */
+/* Reset css */
 * {
     padding: 0;
     margin: 0;
@@ -15,6 +15,21 @@ body{
     color: #fff;
 }
 
+/* Header - titulo */
+.title {
+    font-size: 2.5rem;
+    color: #ff00ff;
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px #dd0000, -1px -1px #444;
+}
+
+.title::first-letter{
+    color: #dd0000;
+}
+  
+/* Footer - cabecalho */
 footer{
     color: white;
     background-color: cornflowerblue;
