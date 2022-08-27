@@ -1,0 +1,23 @@
+/* Main - container */
+.music-container{
+    margin: 20px;
+    padding: 10px;
+
+    border: 2px solid #606060;
+    border-radius: 15px;
+    
+    box-shadow: 2px 2px 2px 2px var(--red);
+
+    min-height: 400px;
+    min-width: 300px;
+
+    height: 60%;    
+    width: 60%;
+}
+
+/* Main - container -img */
+.music-bg-img{
+    background-image: url("./../Imgs/brackground/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
