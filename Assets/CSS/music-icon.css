@@ -1,3 +1,6 @@
+/* Importação */
+@import "./variabes/variabes.css";
+
 /* Icones */
 .music-icon {
     height: 30px;
@@ -16,6 +19,6 @@
 }
 
 .music-icon:hover{
-    color: black;
-    background-color: white;
+    color: var(--black);
+    background-color: var(--wlite);
 }
