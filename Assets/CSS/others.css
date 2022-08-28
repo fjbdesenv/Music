@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.w90{
+    width: 90%;
+}
+
 .w75{
     width: 75%;
 }
@@ -20,6 +24,10 @@
     height: 100%;
 }
 
+.h90{
+    height: 90%;
+}
+
 .h75{
     height: 75%;
 }
@@ -30,4 +38,55 @@
 
 .h25{
     height: 25%;
+}
+
+/* Margim */
+
+.m20{
+    margin: 20px;
+}
+
+.m15{
+    margin: 15px;
+}
+
+.m10{
+    margin: 10px;
+}
+
+.m5{
+    margin: 5px;
+}
+
+.m2{
+    margin: 2px;
+}
+
+.m1{
+    margin: 2px;
+}
+
+/* Padding */
+.p20{
+    padding: 20px;
+}
+
+.p15{
+    padding: 15px;
+}
+
+.p10{
+    padding: 10px;
+}
+
+.p5{
+    padding: 5px;
+}
+
+.p2{
+    padding: 2px;
+}
+
+.p1{
+    padding: 1px;
 }
