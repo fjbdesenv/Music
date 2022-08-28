@@ -9,5 +9,5 @@
     --bg-display: rgba(255, 255, 255, 0.5);
 
     /* URLs */
-    --URL-bg-img : url("./../Imgs/brackground/background.jpg")
+    --URL-bg-img : url("./../Imgs/brackground/background.jpg");
 }
