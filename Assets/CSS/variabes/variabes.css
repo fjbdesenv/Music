@@ -1,0 +1,13 @@
+/* Variabes */
+:root{
+    /* Cores */
+    --red: #dd0000;
+    --black: #000;
+    --wlite: #fff;
+    --pink: #ff00ff;
+
+    --bg-display: rgba(255, 255, 255, 0.5);
+
+    /* URLs */
+    --URL-bg-img : url("./../Imgs/brackground/background.jpg")
+}

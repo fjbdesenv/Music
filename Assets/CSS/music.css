@@ -1,10 +1,5 @@
-/* Variabes */
-:root{
-    --red: #dd0000;
-    --black: #000;
-    --wlite: #fff;
-    --pink: #ff00ff;
-}
+/* Importação */
+@import "./variabes/variabes.css";
 
 /* Main - container */
 .music-container{
@@ -25,7 +20,7 @@
 
 /* Main - container - img */
 .music-bg-img{
-    background-image: url("./../Imgs/brackground/background.jpg");
+    background-image: var(--URL-bg-img);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -34,7 +29,7 @@
 .music-display{
     bottom: 100px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--bg-display);
 }
 
 /* Marquee - nome da musica  */
