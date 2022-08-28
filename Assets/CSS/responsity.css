@@ -1,0 +1,6 @@
+/* Responsividade */
+@media screen and (max-width: 750px) {
+    #music-control-main{
+        flex-direction: column;
+    }
+}
