@@ -26,10 +26,12 @@ body{
     padding: 5px;
     text-align: center;
     text-shadow: 1px 1px var(--red), -1px -1px #444;
+    letter-spacing: 2px;
 }
 
 .title::first-letter{
-    color: #dd0000;
+    color: var(--red);
+    font-size: 3rem;
 }
   
 /* Footer - cabecalho */
