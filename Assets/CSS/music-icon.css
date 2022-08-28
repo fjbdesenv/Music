@@ -3,10 +3,19 @@
     height: 30px;
     width: 30px;
     padding: 5px;
+
+    border-radius: 5px;
+    padding: 2px;
+    margin: 0 5px;
 }
 
 .music-input-search{
     visibility: hidden;
     position: fixed;
-    left: -9000px
+    left: -9000px;
+}
+
+.music-icon:hover{
+    color: black;
+    background-color: white;
 }
