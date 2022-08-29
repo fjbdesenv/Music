@@ -43,7 +43,7 @@ export const createListMusic = (elementListMusic, listMusic) =>{
         const LIST_MUSICS = listMusic.getList().list; 
 
         elementListMusic.innerHTML = "";
-
+        
         for (const position in LIST_MUSICS){
             elementListMusic.appendChild(createItemList(LIST_MUSICS[position], position));
         }
