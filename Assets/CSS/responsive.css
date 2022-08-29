@@ -3,4 +3,7 @@
     #music-control-main{
         flex-direction: column;
     }
+    #music-name{
+        padding: 10px;
+    }
 }

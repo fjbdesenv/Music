@@ -35,6 +35,7 @@
     font-size: 2rem;
 }
 
+/* Lista de musicas */
 .music-list{
     overflow: hidden;
     overflow-y: scroll;
