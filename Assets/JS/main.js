@@ -3,7 +3,8 @@ import Music from "./Class/Music.js";
 import {
   getElementId,
   setVolumeMusic,
-  loadFiles
+  loadFiles,
+  createListMusic
 } from "./Function/Funcition.js";
 
 /* Variaveis */
@@ -36,7 +37,11 @@ const [
   getElementId("music-list-ul"),
 ];
 
-const updateListMusic = (event) => LIST_MUSICS.setList(loadFiles(event));
+const updateListMusic = (event) =>{
+  LIST_MUSICS.setList(loadFiles(event));
+  createListMusic(elementListMusic, LIST_MUSICS);
+};
+
 const updateVolume = (value) => volume =  setVolumeMusic(value, elementValueVolume);
 
 const addOnclickElements = () => {

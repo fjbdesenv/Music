@@ -2,38 +2,66 @@
 @import "./variabes/variabes.css";
 
 /* Main - container */
-.music-container{
+.music-container {
     margin: 20px;
     padding: 10px;
 
     border: 2px solid #606060;
     border-radius: 15px;
-    
+
     box-shadow: 2px 2px 2px 2px var(--red);
 
     min-height: 400px;
     min-width: 300px;
 
-    height: 60%;    
+    height: 60%;
     width: 60%;
 }
 
 /* Main - container - img */
-.music-bg-img{
+.music-bg-img {
     background-image: var(--URL-bg-img);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 /* Display - Controle */
-.music-display{
+.music-display {
     bottom: 100px;
     border-radius: 10px;
     background-color: var(--bg-display);
 }
 
 /* Marquee - nome da musica  */
-#music-name{
+#music-name {
     color: var(--wlite);
     font-size: 2rem;
+}
+
+.music-list{
+    overflow: hidden;
+    overflow-y: scroll;
+
+    scroll-behavior: smooth;
+}
+
+.music-list-ul {
+    color: var(--wlite);
+}
+
+.music-list-li {
+    color: bisque;
+    border-radius: 10px;
+
+    list-style: none;
+}
+
+.music-list-li-selected {
+    border: 2px solid var(--wlite);
+    background-color: #505050;
+}
+
+.music-list-li:hover {
+    background-color: var(--red);
+    cursor: pointer;
 }

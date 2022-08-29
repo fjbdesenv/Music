@@ -23,3 +23,32 @@ export const loadFiles = (event) => {
     return listMusic;
 };
 
+
+const createItemList = (music, position) => {
+
+    const itemHTML = document.createElement("li");
+
+    itemHTML.id = position;
+    itemHTML.classList.add("music-list-li");
+    itemHTML.classList.add("m5");
+    itemHTML.classList.add("p10");
+    itemHTML.innerHTML = music.name;
+
+    return itemHTML;
+};
+
+
+export const createListMusic = (elementListMusic, listMusic) =>{
+    if(listMusic instanceof ListMusic && elementListMusic instanceof HTMLElement){
+        const LIST_MUSICS = listMusic.getList().list; 
+
+        elementListMusic.innerHTML = "";
+
+        for (const position in LIST_MUSICS){
+            elementListMusic.appendChild(createItemList(LIST_MUSICS[position], position));
+        }
+        
+        return true;
+    }
+    return false;
+}
