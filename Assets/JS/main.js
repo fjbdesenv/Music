@@ -3,6 +3,7 @@ import {
   elementVolDown,
   elementVolHigh,
   elementInputFile,
+  elementValueVolume
 } from "./variabes.js";
 import { createListMusic } from "./Function/music-list.js";
 import {
