@@ -1,6 +1,5 @@
-import {showPlay} from "./music-controller.js";
+import {hiddenPlay} from "./music-controller.js";
 
 export const play = (position) => {
-    showPlay();
-
+    hiddenPlay();
 }

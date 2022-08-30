@@ -1,5 +1,7 @@
 import ListMusic from "./Class/ListMusic.js";
 import {
+  elementPlay,
+  elementPause,
   elementVolDown,
   elementVolHigh,
   elementInputFile,
@@ -10,6 +12,7 @@ import {
   loadFiles,
   setVolumeMusic,
   hiddenPlay,
+  showPlay,
 } from "./Function/music-controller.js";
 
 /* Variaveis */
@@ -25,9 +28,16 @@ const updateListMusic = (event) => {
 const updateVolume = (value) =>
   (volume = setVolumeMusic(value, elementValueVolume));
 
+const play = () =>{
+  hiddenPlay();
+}
+const pause = () =>{
+  showPlay();
+}
+    
 const addOnclickElements = () => {
-  //   elementPlay.onclick = () => changePlaying(playing);
-  //   elementPause.onclick = changePlaying;
+  elementPlay.onclick = play;
+  elementPause.onclick = pause;
   //   elementBackwardPrevious.onclick = previous;
   //   elementBackwardNext.onclick = next;
   elementVolDown.onclick = () => updateVolume(volume - 0.1);
