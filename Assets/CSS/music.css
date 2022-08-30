@@ -63,3 +63,9 @@
     background-color: var(--red);
     cursor: pointer;
 }
+
+.music-select{
+    color: var(--black);
+    border: 2px solid var(--wlite);
+    background-color: var(--wlite);  
+}
