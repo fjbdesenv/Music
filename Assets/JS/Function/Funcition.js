@@ -1,5 +1,10 @@
+
 import ListMusic from "../Class/ListMusic.js";
 import Music from "../Class/Music.js";
+import {elementListMusic, elementNameMusic} from "../variabes.js";
+
+/* Variaveis */
+let LIST_MUSICS, position;
 
 export const getElementId = (id) => document.getElementById(id);
 
@@ -23,29 +28,37 @@ export const loadFiles = (event) => {
     return listMusic;
 };
 
+const setNameMusic = (position) => {
+    elementNameMusic.innerHTML = LIST_MUSICS[position].name;
+};
+  
 
-const createItemList = (music, position) => {
+const selectMusic = (i) => {
+    position = i;
+    setNameMusic(position);
+};
+
+const createItemList = (music, i) => {
 
     const itemHTML = document.createElement("li");
 
-    itemHTML.id = position;
-    itemHTML.classList.add("music-list-li");
-    itemHTML.classList.add("m5");
-    itemHTML.classList.add("p10");
+    itemHTML.id = i;
+    itemHTML.setAttribute("class", "music-list-li m5 p10");
     itemHTML.innerHTML = music.name;
+    itemHTML.addEventListener("click", () => selectMusic(i));
 
     return itemHTML;
 };
 
 
-export const createListMusic = (elementListMusic, listMusic) =>{
-    if(listMusic instanceof ListMusic && elementListMusic instanceof HTMLElement){
-        const LIST_MUSICS = listMusic.getList().list; 
+export const createListMusic = (listMusic) =>{
+    if(listMusic instanceof ListMusic){
+        LIST_MUSICS = listMusic.getList().list; 
 
         elementListMusic.innerHTML = "";
         
-        for (const position in LIST_MUSICS){
-            elementListMusic.appendChild(createItemList(LIST_MUSICS[position], position));
+        for (const i in LIST_MUSICS){
+            elementListMusic.appendChild(createItemList(LIST_MUSICS[i], i));
         }
         
         return true;

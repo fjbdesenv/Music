@@ -1,7 +1,6 @@
 import ListMusic from "./Class/ListMusic.js";
-import Music from "./Class/Music.js";
+import {elementVolDown, elementVolHigh, elementInputFile} from "./variabes.js";
 import {
-  getElementId,
   setVolumeMusic,
   loadFiles,
   createListMusic
@@ -12,34 +11,9 @@ const LIST_MUSICS = new ListMusic();
 let playing = false;
 let volume = 1;
 
-/* Obter elementos HTML (Tags) */
-const [
-  elementPlay,
-  elementPause,
-  elementBackwardPrevious,
-  elementBackwardNext,
-  elementVolDown,
-  elementVolHigh,
-  elementInputFile,
-  elementValueVolume,
-  elementNameMusic,
-  elementListMusic,
-] = [
-  getElementId("play"),
-  getElementId("pause"),
-  getElementId("previous"),
-  getElementId("next"),
-  getElementId("volume-down"),
-  getElementId("volume-high"),
-  getElementId("real-input"),
-  getElementId("value-volume"),
-  getElementId("music-name"),
-  getElementId("music-list-ul"),
-];
-
 const updateListMusic = (event) =>{
   LIST_MUSICS.setList(loadFiles(event));
-  createListMusic(elementListMusic, LIST_MUSICS);
+  createListMusic(LIST_MUSICS);
 };
 
 const updateVolume = (value) => volume =  setVolumeMusic(value, elementValueVolume);
