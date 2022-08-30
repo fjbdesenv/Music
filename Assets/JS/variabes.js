@@ -1,4 +1,4 @@
-import {getElementId} from "./Function/Funcition.js"
+import {getElementId} from "./Function/Outhers.js"
 
 /* Obter elementos HTML (Tags) */
 export const [

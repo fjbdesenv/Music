@@ -4,7 +4,8 @@ import {
   setVolumeMusic,
   loadFiles,
   createListMusic
-} from "./Function/Funcition.js";
+} from "./Function/music.js";
+import {hiddenPlay} from "./Function/music-icons.js"
 
 /* Variaveis */
 const LIST_MUSICS = new ListMusic();
@@ -30,6 +31,7 @@ const addOnclickElements = () => {
 /* Inicia script */
 const start = () => {
   addOnclickElements();
+  hiddenPlay();
 };
 
 start();

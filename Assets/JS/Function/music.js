@@ -1,12 +1,12 @@
 
 import ListMusic from "../Class/ListMusic.js";
 import Music from "../Class/Music.js";
-import {elementListMusic, elementNameMusic} from "../variabes.js";
+import {elementListMusic, elementNameMusic} from "./../variabes.js";
+import {showPlay, hiddenPlay} from "./music-icons.js";
 
 /* Variaveis */
-let LIST_MUSICS, position;
+let listMusic, currentPosition;
 
-export const getElementId = (id) => document.getElementById(id);
 
 export const setVolumeMusic = (value, element) =>{
     if(value >= 0){
@@ -29,36 +29,43 @@ export const loadFiles = (event) => {
 };
 
 const setNameMusic = (position) => {
-    elementNameMusic.innerHTML = LIST_MUSICS[position].name;
-};
-  
+    elementNameMusic.innerHTML = listMusic[position].name;
+};  
 
-const selectMusic = (i) => {
-    position = i;
+const play = (position) => {
+    showPlay();
+}
+
+
+const selectMusic = (position) => {
+    
     setNameMusic(position);
+    play(position);
+
+    currentPosition = position;
 };
 
-const createItemList = (music, i) => {
+const createItemList = (music, position) => {
 
     const itemHTML = document.createElement("li");
 
-    itemHTML.id = i;
+    itemHTML.id = position;
     itemHTML.setAttribute("class", "music-list-li m5 p10");
     itemHTML.innerHTML = music.name;
-    itemHTML.addEventListener("click", () => selectMusic(i));
+    itemHTML.addEventListener("click", () => selectMusic(position));
 
     return itemHTML;
 };
 
 
-export const createListMusic = (listMusic) =>{
-    if(listMusic instanceof ListMusic){
-        LIST_MUSICS = listMusic.getList().list; 
+export const createListMusic = (list) =>{
+    if(list instanceof ListMusic){
+        listMusic = list.getList().list; 
 
         elementListMusic.innerHTML = "";
         
-        for (const i in LIST_MUSICS){
-            elementListMusic.appendChild(createItemList(LIST_MUSICS[i], i));
+        for (const position in listMusic){
+            elementListMusic.appendChild(createItemList(listMusic[position], position));
         }
         
         return true;

@@ -24,3 +24,11 @@
 .music-icon, .music-icon:hover{
     transition: ease-in 0.4s color,  ease-in 0.4s background-color, ease-in 0.4s box-shadow;
 }
+
+.hidden{
+    display: none;
+    width: 1px;
+    height: 1px;
+
+    visibility: hidden;
+}
