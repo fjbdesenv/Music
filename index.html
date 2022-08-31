@@ -72,17 +72,24 @@
                 </svg>
             </div>
             
-            <!-- Controle de volumes -->
-            <div id="music-control-2" class="container-volume d-flex center-center">
-                
-                <!-- Botão diminuir volume -->
-                <img class="music-icon" id="volume-down" src="./Assets/Imgs/icons/volume/volume-down.png" alt="Botão para diminuir volume">
-                
-                VOL: <span id="value-volume"> 100%</span>
-                
-                <!-- Botão aumentar volume -->
-                <img class="music-icon" id="volume-high" src="./Assets/Imgs/icons/volume/high-volume.png" alt="Botão para aumentar volume">
-            
+            <div class="container-volume d-flex center-center">
+                <!-- Controle de volumes -->
+                <div id="music-control-2" class="container-volume d-flex center-center m10">
+                                
+                    <!-- Botão diminuir volume -->
+                    <img class="music-icon" id="volume-down" src="./Assets/Imgs/icons/volume/volume-down.png" alt="Botão para diminuir volume">
+                    
+                    VOL: <span id="value-volume"> 100%</span>
+                    
+                    <!-- Botão aumentar volume -->
+                    <img class="music-icon" id="volume-high" src="./Assets/Imgs/icons/volume/high-volume.png" alt="Botão para aumentar volume">
+
+                </div>
+
+                <!-- Display de tempo de reprodução / duração da musica -->
+                <div class="m10">
+                    <span id="time-current">0:00</span>/<span id="time-duration">0:00</span>
+                </div>
             </div>
 
         </div>
