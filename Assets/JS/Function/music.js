@@ -1,4 +1,4 @@
-import { Music, ListMusic } from "../Class/index.JS";
+import { Music, ListMusic } from "./../Class/index.js";
 import {
   elementAudio,
   elementListMusic,
