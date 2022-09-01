@@ -54,11 +54,6 @@
     list-style: none;
 }
 
-.music-list-li-selected {
-    border: 2px solid var(--wlite);
-    background-color: #505050;
-}
-
 .music-list-li:hover {
     background-color: var(--red);
     cursor: pointer;
@@ -68,4 +63,12 @@
     color: var(--black);
     border: 2px solid var(--wlite);
     background-color: var(--wlite);  
+}
+
+.music-list-li, .music-list-li:hover{
+    transition: ease-in 0.3s background-color;
+}
+
+.music-list-li, .music-select{
+    transition: ease-in 0.3s color, ease-in 0.3s border, ease-in 0.3s background-color;
 }
