@@ -13,7 +13,9 @@ export const [
   elementValueVolume,
   elementNameMusic,
   elementListMusic,
-  elementAudio
+  elementAudio,
+  elementTimeCurrent,
+  elementTimeDuration,
 ] = [
   getElementId("play"),
   getElementId("pause"),
@@ -25,7 +27,9 @@ export const [
   getElementId("value-volume"),
   getElementId("music-name"),
   getElementId("music-list-ul"),
-  getElementId("music-audio")
+  getElementId("music-audio"),
+  getElementId("time-current"),
+  getElementId("time-duration")
 ];
 
 export const LIST_MUSICS = new ListMusic();

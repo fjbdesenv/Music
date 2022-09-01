@@ -1,5 +1,5 @@
 import {Music, ListMusic} from "../Class/index.JS";
-import {elementAudio, elementListMusic, elementNameMusic, LIST_MUSICS} from "./../variabes.js";
+import {elementAudio, elementListMusic, elementNameMusic, elementTimeCurrent, elementTimeDuration, LIST_MUSICS} from "./../variabes.js";
 
 export const setNameMusic = (name) => {
     elementNameMusic.innerHTML = name;
@@ -12,11 +12,7 @@ export const selectMusicHTML = (newPosition) => {
     LIST_HTML[newPosition].classList.add("music-select");
 }
 
-export const selectMusic = (music, position) => {
-    
-    console.log("Music = " + music);
-    console.log("position = " + position);    
-    
+export const selectMusic = (music, position) => {    
     setNameMusic(music.name);
     startMusic(position);
     selectMusicHTML(position);
@@ -64,26 +60,59 @@ export const startMusic = (position) => {
     loadMusic(LIST_MUSICS.getList().list[position].getFile());
 }
 
-export const changeEndMusic = (currentTime, duration, interval) => {
-    if(currentTime >= duration){
+export const formatTime = (seconds) =>{
+    let newSeconds, minutes;
 
-        clearInterval(interval);
+    if(seconds >= 60){
+        if (seconds % 60 >= 30) minutes = ((seconds / 60)).toFixed(0) -1;
+        else minutes = (seconds / 60).toFixed(0);
+        newSeconds = seconds % 60;
+    }else{
+        minutes = "00";
+        newSeconds = seconds;
+    }
 
-        let position = Number(localStorage.getItem("current_music")) + 1;
+    if(newSeconds  == 0) newSeconds = "00";
+    else if(newSeconds  < 10) newSeconds = "0" + newSeconds;
+
+    if(minutes  == 0) minutes = "00";
+    else if(minutes  < 10) minutes = "0" + minutes;
+
+    return `${minutes}:${newSeconds}`;
+}
+
+export const setTimesMusic = (currentMucic, duration) => {
+    elementTimeCurrent.innerText = currentMucic;
+    elementTimeDuration.innerText = duration;
+}
+
+export const nextMusic = () => {
+    let position = Number(localStorage.getItem("current_music")) + 1;
+    if(position >= 0 && position < LIST_MUSICS.getList().list.length){
         let music = LIST_MUSICS.getList().list[position];
-        selectMusic(music, position);
+        selectMusic(music, position);    
     }
 }
 
 export const updateCurrentMusic = () => {
     let currentTime = 0;
-    
-    let interval =  setInterval(()=>{
-        let duration = elementAudio.duration;
 
+    let interval =  setInterval(()=>{
+        let duration = Number(elementAudio.duration).toFixed(0);
+        
         currentTime++;
-        console.log(currentTime +  " / "+ duration);
-        changeEndMusic(currentTime, duration, interval);
+        console.log(currentTime + " / " + duration);
+        setTimesMusic(formatTime(currentTime), formatTime(duration));
+        
+        if(currentTime != localStorage.getItem("current_music")){
+            clearInterval(interval-1);
+        }
+
+        if(currentTime >= duration){
+            clearInterval(interval);
+            nextMusic();
+        }
+
     },1000)
 }
 
