@@ -1,5 +1,4 @@
 import {elementPlay, elementPause} from "./../variabes.js";
-import {Music, ListMusic} from "../Class/index.js";
 
 export const showPlay = () => {
     elementPlay.classList.remove("hidden");
@@ -13,20 +12,11 @@ export const hiddenPlay = () => {
 
 export const setVolumeMusic = (value, element) =>{
     if(value >= 0){
-        if(value <= 1){
-            element.innerHTML = `${value.toFixed(1) * 100}%`;
-            return value;
+        if(value <= 100){
+            element.innerHTML = `${value} %`;
+            return Number(value);
         }
-        return value - 0.1;
+        return Number(value) - 10;
     }
-    return  value + 0.1;
-};
-
-export const loadFiles = (event) => {
-    let listMusic = new ListMusic();
-    for (const file of event.target.files){
-        listMusic.add(new Music(file.name, file));
-    }
-
-    return listMusic;
+    return  Number(value) + 10;
 };

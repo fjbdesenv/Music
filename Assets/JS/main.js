@@ -1,52 +1,56 @@
-import ListMusic from "./Class/ListMusic.js";
-import {
-  elementPlay,
-  elementPause,
-  elementVolDown,
-  elementVolHigh,
-  elementInputFile,
-  elementValueVolume
-} from "./variabes.js";
-import { createListMusic } from "./Function/music-list.js";
-import {
-  loadFiles,
-  setVolumeMusic,
-  hiddenPlay,
-  showPlay,
-} from "./Function/music-controller.js";
+import {elementPlay, elementPause, elementPrevious, elementNext, elementVolDown, elementVolHigh, elementValueVolume, elementInputFile} from "./variabes.js";
+import {hiddenPlay, setVolumeMusic} from "./Function/music-controller.js";
+import {LIST_MUSICS} from "./variabes.js" ;
+import {loadFiles, createListMusic, updateCurrentMusic} from "./Function/music.js";
 
 /* Variaveis */
-const LIST_MUSICS = new ListMusic();
-let playing = false;
-let volume = 1;
 
 const updateListMusic = (event) => {
   LIST_MUSICS.setList(loadFiles(event));
   createListMusic(LIST_MUSICS);
 };
 
-const updateVolume = (value) =>
-  (volume = setVolumeMusic(value, elementValueVolume));
-
 const play = () =>{
-  hiddenPlay();
+
 }
+
 const pause = () =>{
-  showPlay();
+  
 }
-    
+
+const previous = () =>{
+  
+}
+
+const next = () =>{
+  
+}
+
+const updateVolume = (value) =>{
+  let volume = setVolumeMusic(value, elementValueVolume);
+  localStorage.setItem("volume", volume);
+}
+
 const addOnclickElements = () => {
   elementPlay.onclick = play;
   elementPause.onclick = pause;
-  //   elementBackwardPrevious.onclick = previous;
-  //   elementBackwardNext.onclick = next;
-  elementVolDown.onclick = () => updateVolume(volume - 0.1);
-  elementVolHigh.onclick = () => updateVolume(volume + 0.1);
+  elementPrevious.onclick = previous;
+  elementNext.onclick = next;
+  elementVolDown.onclick = () => updateVolume(Number(localStorage.getItem("volume")) - 10);
+  elementVolHigh.onclick = () => updateVolume(Number(localStorage.getItem("volume")) + 10);
   elementInputFile.onchange = (event) => updateListMusic(event);
 };
+
+
+const startLocalStorage = () => {
+  localStorage.setItem("current_music", 0);
+  localStorage.setItem("volume", 100);
+};
+
 /* Inicia script */
 const start = () => {
   addOnclickElements();
+  startLocalStorage();
   hiddenPlay();
 };
 

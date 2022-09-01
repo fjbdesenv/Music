@@ -2,7 +2,7 @@ export default class Music{
     /* Construtor */
     constructor(name, file){
         this.name = name;
-        this.file = this.convertFileAudio(file); 
+        this.file = file; 
     }
 
     /* Gets */
@@ -18,12 +18,6 @@ export default class Music{
         this.name = name;
     }
     setFile(file) {
-        this.file = file;
-    }
-
-    convertFileAudio(file){
-        if(file instanceof File){
-            return new Audio(URL.createObjectURL(file));
-        }
+        this.file = file;   
     }
 }
