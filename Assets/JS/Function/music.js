@@ -86,6 +86,14 @@ export const setTimesMusic = (currentMucic, duration) => {
     elementTimeDuration.innerText = duration;
 }
 
+export const previousMusic = () =>{
+    let position = Number(localStorage.getItem("current_music")) - 1;
+    if(position >= 0 && position < LIST_MUSICS.getList().list.length){
+        let music = LIST_MUSICS.getList().list[position];
+        selectMusic(music, position);    
+    } 
+}
+
 export const nextMusic = () => {
     let position = Number(localStorage.getItem("current_music")) + 1;
     if(position >= 0 && position < LIST_MUSICS.getList().list.length){
@@ -101,7 +109,6 @@ export const updateCurrentMusic = () => {
         let duration = Number(elementAudio.duration).toFixed(0);
         
         currentTime++;
-        console.log(currentTime + " / " + duration);
         setTimesMusic(formatTime(currentTime), formatTime(duration));
         
         if(currentTime != localStorage.getItem("current_music")){

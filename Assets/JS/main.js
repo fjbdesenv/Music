@@ -1,7 +1,7 @@
 import {elementPlay, elementPause, elementPrevious, elementNext, elementVolDown, elementVolHigh, elementValueVolume, elementInputFile} from "./variabes.js";
-import {hiddenPlay, setVolumeMusic} from "./Function/music-controller.js";
+import {hiddenPlay, setVolumeMusic, showPlay} from "./Function/music-controller.js";
 import {LIST_MUSICS} from "./variabes.js" ;
-import {loadFiles, createListMusic, updateCurrentMusic} from "./Function/music.js";
+import {loadFiles, createListMusic, playMusic, pauseMusic, previousMusic, nextMusic} from "./Function/music.js";
 
 /* Variaveis */
 
@@ -11,19 +11,21 @@ const updateListMusic = (event) => {
 };
 
 const play = () =>{
-
+  hiddenPlay();
+  playMusic();
 }
 
 const pause = () =>{
-  
+  showPlay();
+  pauseMusic();
 }
 
 const previous = () =>{
-  
+  previousMusic();
 }
 
 const next = () =>{
-  
+  nextMusic();
 }
 
 const updateVolume = (value) =>{
