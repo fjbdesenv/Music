@@ -1,7 +1,27 @@
-import {elementPlay, elementPause, elementPrevious, elementNext, elementVolDown, elementVolHigh, elementValueVolume, elementInputFile} from "./variabes.js";
-import {hiddenPlay, setVolumeMusic, showPlay} from "./Function/music-controller.js";
-import {LIST_MUSICS} from "./variabes.js" ;
-import {loadFiles, createListMusic, playMusic, pauseMusic, previousMusic, nextMusic} from "./Function/music.js";
+import {
+  elementPlay,
+  elementPause,
+  elementPrevious,
+  elementNext,
+  elementVolDown,
+  elementVolHigh,
+  elementValueVolume,
+  elementInputFile,
+} from "./Variabes/variabes.js";
+import {
+  hiddenPlay,
+  setVolumeMusic,
+  showPlay,
+} from "./Function/music-controller.js";
+import { LIST_MUSICS } from "./Variabes/variabes.js";
+import {
+  loadFiles,
+  createListMusic,
+  playMusic,
+  pauseMusic,
+  previousMusic,
+  nextMusic,
+} from "./Function/music.js";
 
 /* Variaveis */
 
@@ -10,39 +30,40 @@ const updateListMusic = (event) => {
   createListMusic(LIST_MUSICS);
 };
 
-const play = () =>{
+const play = () => {
   hiddenPlay();
   playMusic();
-}
+};
 
-const pause = () =>{
+const pause = () => {
   showPlay();
   pauseMusic();
-}
+};
 
-const previous = () =>{
+const previous = () => {
   previousMusic();
-}
+};
 
-const next = () =>{
+const next = () => {
   nextMusic();
-}
+};
 
-const updateVolume = (value) =>{
+const updateVolume = (value) => {
   let volume = setVolumeMusic(value, elementValueVolume);
   localStorage.setItem("volume", volume);
-}
+};
 
 const addOnclickElements = () => {
   elementPlay.onclick = play;
   elementPause.onclick = pause;
   elementPrevious.onclick = previous;
   elementNext.onclick = next;
-  elementVolDown.onclick = () => updateVolume(Number(localStorage.getItem("volume")) - 10);
-  elementVolHigh.onclick = () => updateVolume(Number(localStorage.getItem("volume")) + 10);
+  elementVolDown.onclick = () =>
+    updateVolume(Number(localStorage.getItem("volume")) - 10);
+  elementVolHigh.onclick = () =>
+    updateVolume(Number(localStorage.getItem("volume")) + 10);
   elementInputFile.onchange = (event) => updateListMusic(event);
 };
-
 
 const startLocalStorage = () => {
   localStorage.setItem("current_music", 0);

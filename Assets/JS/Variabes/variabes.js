@@ -1,5 +1,5 @@
-import ListMusic from "./Class/ListMusic.js";
-import {getElementId} from "./Function/Outhers.js"
+import ListMusic from "./../Class/ListMusic.js";
+import { getElementId } from "./../Function/Outhers.js";
 
 /* Obter elementos HTML (Tags) */
 export const [
@@ -29,7 +29,7 @@ export const [
   getElementId("music-list-ul"),
   getElementId("music-audio"),
   getElementId("time-current"),
-  getElementId("time-duration")
+  getElementId("time-duration"),
 ];
 
 export const LIST_MUSICS = new ListMusic();

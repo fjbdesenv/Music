@@ -1,138 +1,146 @@
-import {Music, ListMusic} from "../Class/index.JS";
-import {elementAudio, elementListMusic, elementNameMusic, elementTimeCurrent, elementTimeDuration, LIST_MUSICS} from "./../variabes.js";
+import { Music, ListMusic } from "../Class/index.JS";
+import {
+  elementAudio,
+  elementListMusic,
+  elementNameMusic,
+  elementTimeCurrent,
+  elementTimeDuration,
+  LIST_MUSICS,
+} from "./../Variabes/variabes.js";
 
 export const setNameMusic = (name) => {
-    elementNameMusic.innerHTML = name;
+  elementNameMusic.innerHTML = name;
 };
 
 export const selectMusicHTML = (newPosition) => {
-    const CURRENT_POSITION = localStorage.getItem("current_music");
-    const LIST_HTML = document.querySelectorAll(".music-list-li");
-    if(CURRENT_POSITION) LIST_HTML[CURRENT_POSITION].classList.remove("music-select");
-    LIST_HTML[newPosition].classList.add("music-select");
-}
+  const CURRENT_POSITION = localStorage.getItem("current_music");
+  const LIST_HTML = document.querySelectorAll(".music-list-li");
+  if (CURRENT_POSITION)
+    LIST_HTML[CURRENT_POSITION].classList.remove("music-select");
+  LIST_HTML[newPosition].classList.add("music-select");
+};
 
-export const selectMusic = (music, position) => {    
-    setNameMusic(music.name);
-    startMusic(position);
-    selectMusicHTML(position);
-    localStorage.setItem("current_music", position);
-    updateCurrentMusic();
+export const selectMusic = (music, position) => {
+  setNameMusic(music.name);
+  startMusic(position);
+  selectMusicHTML(position);
+  localStorage.setItem("current_music", position);
+  updateCurrentMusic();
 };
 
 const createItemList = (music, position) => {
+  const itemHTML = document.createElement("li");
 
-    const itemHTML = document.createElement("li");
+  itemHTML.id = position;
+  itemHTML.setAttribute("class", "music-list-li m5 p10");
+  itemHTML.innerHTML = music.name;
+  itemHTML.addEventListener("click", () => selectMusic(music, position));
 
-    itemHTML.id = position;
-    itemHTML.setAttribute("class", "music-list-li m5 p10");
-    itemHTML.innerHTML = music.name;
-    itemHTML.addEventListener("click", () => selectMusic(music, position));
-
-    return itemHTML;
+  return itemHTML;
 };
 
 export const loadFiles = (event) => {
-    let listMusic = new ListMusic();
-    for (const file of event.target.files){
-        listMusic.add(new Music(file.name, file));
-    }
+  let listMusic = new ListMusic();
+  for (const file of event.target.files) {
+    listMusic.add(new Music(file.name, file));
+  }
 
-    return listMusic;
+  return listMusic;
 };
 
-export const createListMusic = (list) =>{
-    if(list instanceof ListMusic){
-        let listMusic = list.getList().list; 
+export const createListMusic = (list) => {
+  if (list instanceof ListMusic) {
+    let listMusic = list.getList().list;
 
-        elementListMusic.innerHTML = "";
-        
-        for (const position in listMusic){
-            elementListMusic.appendChild(createItemList(listMusic[position], position));
-        }
-        
-        return true;
+    elementListMusic.innerHTML = "";
+
+    for (const position in listMusic) {
+      elementListMusic.appendChild(
+        createItemList(listMusic[position], position)
+      );
     }
-    return false;
-}
+
+    return true;
+  }
+  return false;
+};
 
 export const startMusic = (position) => {
-    loadMusic(LIST_MUSICS.getList().list[position].getFile());
-}
+  loadMusic(LIST_MUSICS.getList().list[position].getFile());
+};
 
-export const formatTime = (seconds) =>{
-    let newSeconds, minutes;
+export const formatTime = (seconds) => {
+  let newSeconds, minutes;
 
-    if(seconds >= 60){
-        if (seconds % 60 >= 30) minutes = ((seconds / 60)).toFixed(0) -1;
-        else minutes = (seconds / 60).toFixed(0);
-        newSeconds = seconds % 60;
-    }else{
-        minutes = "00";
-        newSeconds = seconds;
-    }
+  if (seconds >= 60) {
+    if (seconds % 60 >= 30) minutes = (seconds / 60).toFixed(0) - 1;
+    else minutes = (seconds / 60).toFixed(0);
+    newSeconds = seconds % 60;
+  } else {
+    minutes = "00";
+    newSeconds = seconds;
+  }
 
-    if(newSeconds  == 0) newSeconds = "00";
-    else if(newSeconds  < 10) newSeconds = "0" + newSeconds;
+  if (newSeconds == 0) newSeconds = "00";
+  else if (newSeconds < 10) newSeconds = "0" + newSeconds;
 
-    if(minutes  == 0) minutes = "00";
-    else if(minutes  < 10) minutes = "0" + minutes;
+  if (minutes == 0) minutes = "00";
+  else if (minutes < 10) minutes = "0" + minutes;
 
-    return `${minutes}:${newSeconds}`;
-}
+  return `${minutes}:${newSeconds}`;
+};
 
 export const setTimesMusic = (currentMucic, duration) => {
-    elementTimeCurrent.innerText = currentMucic;
-    elementTimeDuration.innerText = duration;
-}
+  elementTimeCurrent.innerText = currentMucic;
+  elementTimeDuration.innerText = duration;
+};
 
-export const previousMusic = () =>{
-    let position = Number(localStorage.getItem("current_music")) - 1;
-    if(position >= 0 && position < LIST_MUSICS.getList().list.length){
-        let music = LIST_MUSICS.getList().list[position];
-        selectMusic(music, position);    
-    } 
-}
+export const previousMusic = () => {
+  let position = Number(localStorage.getItem("current_music")) - 1;
+  if (position >= 0 && position < LIST_MUSICS.getList().list.length) {
+    let music = LIST_MUSICS.getList().list[position];
+    selectMusic(music, position);
+  }
+};
 
 export const nextMusic = () => {
-    let position = Number(localStorage.getItem("current_music")) + 1;
-    if(position >= 0 && position < LIST_MUSICS.getList().list.length){
-        let music = LIST_MUSICS.getList().list[position];
-        selectMusic(music, position);    
-    }
-}
+  let position = Number(localStorage.getItem("current_music")) + 1;
+  if (position >= 0 && position < LIST_MUSICS.getList().list.length) {
+    let music = LIST_MUSICS.getList().list[position];
+    selectMusic(music, position);
+  }
+};
 
 export const updateCurrentMusic = () => {
-    let currentTime = 0;
+  let currentTime = 0;
 
-    let interval =  setInterval(()=>{
-        let duration = Number(elementAudio.duration).toFixed(0);
-        
-        currentTime++;
-        setTimesMusic(formatTime(currentTime), formatTime(duration));
-        
-        if(currentTime != localStorage.getItem("current_music")){
-            clearInterval(interval-1);
-        }
+  let interval = setInterval(() => {
+    let duration = Number(elementAudio.duration).toFixed(0);
 
-        if(currentTime >= duration){
-            clearInterval(interval);
-            nextMusic();
-        }
+    currentTime++;
+    setTimesMusic(formatTime(currentTime), formatTime(duration));
 
-    },1000)
-}
+    if (currentTime != localStorage.getItem("current_music")) {
+      clearInterval(interval - 1);
+    }
 
-export const loadMusic = (file) =>{
-    elementAudio.src = URL.createObjectURL(file);
-    elementAudio.load();
-    playMusic();
+    if (currentTime >= duration) {
+      clearInterval(interval);
+      nextMusic();
+    }
+  }, 1000);
 };
 
-export const playMusic = () =>{
-    elementAudio.play();
+export const loadMusic = (file) => {
+  elementAudio.src = URL.createObjectURL(file);
+  elementAudio.load();
+  playMusic();
 };
 
-export const pauseMusic = () =>{
-    elementAudio.pause();
+export const playMusic = () => {
+  elementAudio.play();
+};
+
+export const pauseMusic = () => {
+  elementAudio.pause();
 };
