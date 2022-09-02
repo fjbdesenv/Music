@@ -117,7 +117,11 @@ export const updateCurrentMusic = () => {
   let interval = setInterval(() => {
     let duration = Number(elementAudio.duration).toFixed(0);
 
-    currentTime++;
+    
+    if (Number(localStorage.getItem("play")) == 1) {
+      currentTime++;
+    }
+
     setTimesMusic(formatTime(currentTime), formatTime(duration));
 
     if (currentTime != localStorage.getItem("current_music")) {
@@ -132,6 +136,7 @@ export const updateCurrentMusic = () => {
 };
 
 export const loadMusic = (file) => {
+  
   elementAudio.src = URL.createObjectURL(file);
   elementAudio.load();
   playMusic();
@@ -139,8 +144,10 @@ export const loadMusic = (file) => {
 
 export const playMusic = () => {
   elementAudio.play();
+  localStorage.setItem("play", 1);
 };
 
 export const pauseMusic = () => {
   elementAudio.pause();
+  localStorage.setItem("play", 0);
 };
