@@ -12,4 +12,7 @@
     #music-control-2{
         flex-direction: column;
     }
+    .m10{
+        margin: 5px;
+    }
 }
