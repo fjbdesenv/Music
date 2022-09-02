@@ -124,8 +124,8 @@ export const updateCurrentMusic = () => {
 
     setTimesMusic(formatTime(currentTime), formatTime(duration));
 
-    if (currentTime != localStorage.getItem("current_music")) {
-      clearInterval(interval - 1);
+    if (currentTime != Number(localStorage.getItem("current_music"))) {
+      for(let i = 0; i < interval; i++) clearInterval(i);
     }
 
     if (currentTime >= duration) {
