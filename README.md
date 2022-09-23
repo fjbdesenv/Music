@@ -11,6 +11,18 @@
 O projeto pode ser acessado em https://fjbdesenv.github.io/Music.
 
 ## 🛠️ Abrir e rodar o projeto
+[![Music2.png](https://i.postimg.cc/bwT1zjyY/Music2.png)](https://postimg.cc/1888H2Vb)
+1. `Titulo da música` 
+2. `Música em execução`
+3. `Quando mouse esta emcima da música`
+4. `Buscar arquivos para execução`
+5. `Música anterior`
+6. `Play/Pause`
+7. `Próxima música`
+8. `Aumentar volume`
+9. `Display de volume`
+10. `Diminuir volume`
+11. `Display de tempo de execução`
 
 ## 👀 Tecnologias utilizadas
 ![HTML](https://img.shields.io/badge/HTML-E34F26.svg?logo=html5&logoColor=white)
