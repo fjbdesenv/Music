@@ -11,7 +11,7 @@
 O projeto pode ser acessado em https://fjbdesenv.github.io/Music.
 
 ## 🛠️ Abrir e rodar o projeto
-[![Music2.png](https://i.postimg.cc/bwT1zjyY/Music2.png)](https://postimg.cc/1888H2Vb)
+[![Imagem do projeto](https://i.postimg.cc/bwT1zjyY/Music2.png)](https://postimg.cc/1888H2Vb)
 1. `Titulo da música` 
 2. `Música em execução`
 3. `Quando mouse esta emcima da música`
