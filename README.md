@@ -24,6 +24,12 @@ O projeto pode ser acessado em https://fjbdesenv.github.io/Music.
 10. `Diminuir volume`
 11. `Display de tempo de execução`
 
+### 🔧 Executar na sua máquina:
+Execute os seguites comandos, necessario instalar `git`:
+1. `git clone https://github.com/fjbdesenv/Music.git`
+2. `cd Music`
+3. `index.html` ou abrir o arquivo index.html no seu navegador.
+
 ## 👀 Tecnologias utilizadas
 ![HTML](https://img.shields.io/badge/HTML-E34F26.svg?logo=html5&logoColor=white)
 ![HTML](https://img.shields.io/badge/CSS-1572B6.svg?logo=css3&logoColor=white)
